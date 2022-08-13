@@ -1,5 +1,3 @@
-import java.awt.Font;
-
 public class LoadMenu {
 	public boolean checkingPromptOneExecuted = false;
 	public boolean savingsPromptOneExecuted = false;

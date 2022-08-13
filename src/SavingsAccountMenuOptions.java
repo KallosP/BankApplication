@@ -86,15 +86,43 @@ public class SavingsAccountMenuOptions {
 			loadMenu.printICTitle();
 			
 			System.out.println("Starting Balance:");
-			initDeposit = scnr.nextInt();
-			System.out.println("\nNumber of Months:");
-			numMonthsInYears = (double) scnr.nextInt() / 12;
-			System.out.println("\nAnnual Interest Rate:");
-			interestRate = scnr.nextDouble() / 100;
+			if(scnr.hasNextInt()) {
+				
+				initDeposit = scnr.nextInt();
+				
+				System.out.println("\nNumber of Months:");
+				if(scnr.hasNextDouble()) {
+					
+					numMonthsInYears = (double) scnr.nextInt() / 12;
+					
+					System.out.println("\nAnnual Interest Rate:");
+					if(scnr.hasNextDouble()) {
 						
-			calculateAndPrintTotalSavings(initDeposit, numMonthsInYears, interestRate);
-			
-			scnr.nextLine();
+						interestRate = scnr.nextDouble() / 100;
+						
+						//If all input is valid, calculate and print the total savings
+						calculateAndPrintTotalSavings(initDeposit, numMonthsInYears, interestRate);
+						
+					}
+					else {
+						System.err.println("\nInvalid entry.");
+						//Prevents Savings menu from printing more than once
+						scnr.nextLine();
+						scnr.nextLine(); 
+					}
+					
+				}
+				else {
+					System.err.println("\nInvalid entry.");
+					scnr.nextLine();
+					scnr.nextLine();
+				}
+				
+			}
+			else {
+				System.err.println("\nInvalid entry.");
+				scnr.nextLine();
+			}
 			
 		}
 	}
