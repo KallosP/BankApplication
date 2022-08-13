@@ -117,8 +117,7 @@ public class AccountActions {
 					currBalanceS = balance;
 					System.out.println("\nNEW TOTAL BALANCE: $" + Math.round(makeAndReturnSavingsWithdrawal(withdrawalAmt) * 100.0) / 100.0 + "\n");
 				}
-				
-				
+	
 			}
 		}
 		else {
