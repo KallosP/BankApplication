@@ -39,8 +39,7 @@ public class SavingsAccountMenuOptions {
 		int initDeposit;
 		double numMonthsInYears;
 		double interestRate;
-		
-		
+			
 		loadMenu.printICTitle();
 		
 		System.out.println("Starting Balance:");
@@ -53,11 +52,10 @@ public class SavingsAccountMenuOptions {
 				
 				numMonthsInYears = (double) scnr.nextInt() / 12;
 				
-				System.out.println("\nAnnual Interest Rate:");
+				System.out.println("\nAnnual Interest Rate (Percentage):");
 				if(scnr.hasNextDouble()) {
 					
 					interestRate = scnr.nextDouble() / 100;
-					
 					//If all input is valid, calculate and print the total savings
 					calculateAndPrintTotalSavings(initDeposit, numMonthsInYears, interestRate);
 					
@@ -84,7 +82,7 @@ public class SavingsAccountMenuOptions {
 	
 	private void calculateAndPrintTotalSavings(int deposit, double months, double apy) {
 		
-		System.out.println("\nFuture Savings: $" + (double) Math.round( ( (double) deposit * (1 + ((double) apy * months)) ) * 100) / 100 + "\n");
+		System.out.println("\nFuture Savings: $" + Math.round( ( (double) deposit * (1 + ((double) apy * (double) months)) ) * 100.0) / 100.0 + "\n");
 		
 	}
 	

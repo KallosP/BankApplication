@@ -1,4 +1,5 @@
 public class LoadMenu {
+	
 	public boolean checkingPromptOneExecuted = false;
 	public boolean savingsPromptOneExecuted = false;
 	
@@ -15,7 +16,7 @@ public class LoadMenu {
 				+ "\n2. Make a deposit"
 				+ "\n3. Make a withdrawal"
 				+ "\n4. View previous transaction"
-				+ "\n5. Interest Calculator"
+				+ "\n5. Simple Interest Calculator"
 				+ "\n6. Exit Savings Account");
 	}
 	
@@ -72,4 +73,5 @@ public class LoadMenu {
 	public void newMenuSignal() {
 		System.out.println("============================================");
 	}
+	
 }

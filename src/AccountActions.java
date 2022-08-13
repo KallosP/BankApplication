@@ -55,7 +55,6 @@ public class AccountActions {
 	}
 	
 	public void manageDeposit(double depAmt, double balance, char acct, Scanner scnr) {
-		//FIXME: bug where viewing previous transaction allows for negative values
 
 		System.out.println("\nEnter the amount you would like to deposit:");
 		
@@ -65,7 +64,7 @@ public class AccountActions {
 			
 			if(depAmt < 0) {
 				System.err.println("\nInvalid amount: No deposit made.");
-				System.out.println("\nCURRENT BALANCE: $" + balance + "\n");
+				System.out.println("\nCURRENT BALANCE: $" + Math.round(balance * 100.0) / 100.0 + "\n");
 			}
 			else {
 				
@@ -73,19 +72,19 @@ public class AccountActions {
 				if(acct == 'C') {
 					depAmtC = depAmt;
 					currBalanceC = balance;
-					System.out.println("\nNEW TOTAL BALANCE: $" + makeAndReturnCheckingDeposit(depAmt) + "\n");
+					System.out.println("\nNEW TOTAL BALANCE: $" + Math.round(makeAndReturnCheckingDeposit(depAmt) * 100.0) / 100.0 + "\n");
 				}
 				else if (acct == 'S') {
 					depAmtS = depAmt;
 					currBalanceS = balance;
-					System.out.println("\nNEW TOTAL BALANCE: $" + makeAndReturnSavingsDeposit(depAmt) + "\n");
+					System.out.println("\nNEW TOTAL BALANCE: $" + Math.round(makeAndReturnSavingsDeposit(depAmt) * 100.0) / 100.0 + "\n");
 				}
 				
 			}
 		}
 		else {
 			System.err.println("\nInvalid amount: No deposit made.");
-			System.out.println("\nCURRENT BALANCE: $" + balance + "\n");
+			System.out.println("\nCURRENT BALANCE: $" + Math.round(balance * 100.0) / 100.0 + "\n");
 		}
 		scnr.nextLine(); //used as a counter measure for the above caution (prevents printMenu() from executing twice)	
 		
@@ -99,7 +98,11 @@ public class AccountActions {
 			withdrawalAmt = scnr.nextDouble();
 			if(withdrawalAmt < 0) {
 				System.err.println("\nInvalid amount: No withdrawal made.");
-				System.out.println("\nCURRENT BALANCE: $" + balance + "\n");
+				System.out.println("\nCURRENT BALANCE: $" + Math.round(balance * 100.0) / 100.0 + "\n");
+			}
+			else if((balance - withdrawalAmt) < 0) {
+				System.err.println("\nCannot withdraw more than the current balance: No withdrawal made.");
+				System.out.println("\nCURRENT BALANCE: $" + Math.round(balance * 100.0) / 100.0 + "\n");
 			}
 			else {
 				
@@ -107,12 +110,12 @@ public class AccountActions {
 				if(acct == 'C') {
 					withDrawAmtC = withdrawalAmt;
 					currBalanceC = balance;
-					System.out.println("\nNEW TOTAL BALANCE: $" + makeAndReturnCheckingWithdrawal(withdrawalAmt) + "\n");
+					System.out.println("\nNEW TOTAL BALANCE: $" + Math.round(makeAndReturnCheckingWithdrawal(withdrawalAmt) * 100.0) / 100.0 + "\n");
 				}
 				else if (acct == 'S') {
 					withDrawAmtS = withdrawalAmt;
 					currBalanceS = balance;
-					System.out.println("\nNEW TOTAL BALANCE: $" + makeAndReturnSavingsWithdrawal(withdrawalAmt) + "\n");
+					System.out.println("\nNEW TOTAL BALANCE: $" + Math.round(makeAndReturnSavingsWithdrawal(withdrawalAmt) * 100.0) / 100.0 + "\n");
 				}
 				
 				
@@ -120,6 +123,7 @@ public class AccountActions {
 		}
 		else {
 			System.err.println("\nInvalid amount: No withdrawal made.");
+			System.out.println("\nCURRENT BALANCE: $" + Math.round(balance * 100.0) / 100.0 + "\n");
 		}
 		scnr.nextLine();
 		
@@ -130,22 +134,22 @@ public class AccountActions {
 		if(transTracker == 0) {
 			if(depAmt == 0) {
 				System.err.println("\nNo transaction was made.");
-				System.out.println("\nCURRENT BALANCE: $" + balance + "\n");
+				System.out.println("\nCURRENT BALANCE: $" + Math.round(balance * 100.0) / 100.0 + "\n");
 			}
 			else {
-				System.out.println("\nA deposit of $" + depAmt + " was made.");
-				System.out.println("\nCURRENT BALANCE: $" + balance + "\n");
+				System.out.println("\nA deposit of $" + Math.round(depAmt * 100.0) / 100.0 + " was made.");
+				System.out.println("\nCURRENT BALANCE: $" + Math.round(balance * 100.0) / 100.0 + "\n");
 			}	
 		}
 		else if(transTracker == 1) {
 			
 			if(withdrawalAmt == 0) {
 				System.err.println("\nNo transaction was made.");
-				System.out.println("\nCURRENT BALANCE: $" + balance + "\n");
+				System.out.println("\nCURRENT BALANCE: $" + Math.round(balance * 100.0) / 100.0 + "\n");
 			}
 			else {
-				System.out.println("\nA withdrawal of $" + withdrawalAmt + " was made.");
-				System.out.println("\nCURRENT BALANCE: $" + balance + "\n");
+				System.out.println("\nA withdrawal of $" + Math.round(withdrawalAmt * 100.0) / 100.0 + " was made.");
+				System.out.println("\nCURRENT BALANCE: $" + Math.round(balance * 100.0) / 100.0 + "\n");
 			}
 		}
 		
