@@ -32,7 +32,7 @@ public class CheckingAccountMenuOptions {
 		else if(userIn.equals("3")) { //makes withdrawal
 			
 			System.out.println("\nEnter the amount you would like to withdraw:");
-			//TODO: PREVENT CRASH IF NUMBER ISN'T ENTERED (maybe use do-while loop)
+			
 			if(scnr.hasNextDouble()) {
 				AA.withDrawAmtC = scnr.nextDouble();
 				if(AA.withDrawAmtC < 0) {

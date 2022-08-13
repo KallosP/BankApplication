@@ -27,21 +27,22 @@ public class LoadMenu {
 	public void printWelcome() {
 		System.out.println("____________________________________________");
 		System.out.println();
-		System.out.println("  ~~~~~~WELCOME TO YOUR BANK ACCOUNT~~~~~~");
+		System.out.println("        WELCOME TO YOUR BANK ACCOUNT      ");
 		System.out.println("____________________________________________");
 		System.out.println();
-		System.out.println(" |To perform an action, please enter|"
-				   	   + "\n |its corresponding number.         |\n");
+		System.out.println("    |To perform an action, please enter|"
+				   	   + "\n    |its corresponding number.         |\n");
 		System.out.println("============================================");
 	}
 	
 	public void printFirstPrompt() {
-		System.out.println("Choose the account you wish to enter."); //TODO: maybe format better
+		System.out.println("Choose the account you wish to enter."); 
 		System.out.println("\n1. Checking Account\n2. Savings Account\n3. Log Out");
 	}
 	
 	public void printCheckingPrompt() {
-		if(!checkingPromptOneExecuted) { //Checks if initial prompt has been executed
+		//Checks if initial prompt has been executed
+		if(!checkingPromptOneExecuted) { 
 			System.out.println("CHECKING ACCOUNT:\n");
 			System.out.println("What would you like to do today?\n");
 		}
