@@ -2,6 +2,7 @@
 ## Run It Here:
 https://replit.com/@PeterKallos/BankApplication#Main.java
 
+## Description
 Includes a checking and savings account along with a simple interest calculator.
  
 Both the checking and savings accounts have the same functionality for the most part: can check current balance, make a deposit, make a withdrawal, and view a previous transaction. The values of the current balance and transactions are kept separate for each respective account. 
