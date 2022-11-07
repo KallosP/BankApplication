@@ -45,7 +45,7 @@ public class Menu {
 		} while(!(userIn.equals("3")));
 		 
 		System.out.println("____________________________________________");
-		System.out.println("\n        Logout Successful: Goodbye!");
+		System.out.println("\nLogout Successful: Goodbye!");
 		System.out.println("____________________________________________");
 		
 		scnr.close();
